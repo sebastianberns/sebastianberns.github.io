@@ -7,7 +7,7 @@
 	<meta name="keywords" content="">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Sebastian Berns</title>
-	<meta name="viewport" content="width=520">
+	<meta name="viewport" content="width=500">
   <style>
     @font-face {
       font-family: 'Gill Remix';
@@ -71,8 +71,8 @@
     }
     
     #main {
-      width: 480px;
-      margin: 2.6em auto;
+      width: 460px;
+      margin: 3.2em auto;
     }
     
     .circles {
@@ -106,14 +106,19 @@
       border: 3px solid #fff;
       border-top: none;
     }
-    .circle:hover {
+    .circle:active, .circle:hover {
       z-index: 10;
     }
-    .circle:hover:after {
+    .circle:active:after, .circle:hover:after {
       z-index: -1;
     }
     .circle p {
       margin: 0;
+    }
+    .circle p.l2 {
+      line-height: 1.3em;
+      margin-top: 4.7em;
+      margin-bottom: 4.7em;
     }
     
     .circleblue,
@@ -121,6 +126,8 @@
       border-color: #44f;
     }
     
+    .circleblue:active,
+    .circleblue:active:after,
     .circleblue:hover,
     .circleblue:hover:after {
       background-color: #44f;
@@ -136,6 +143,8 @@
       border-color: #ff8;
     }
     
+    .circleyellow:active,
+    .circleyellow:active:after,
     .circleyellow:hover,
     .circleyellow:hover:after {
       background-color: #ff8;
@@ -143,8 +152,8 @@
     }
     
     .circleoverlap > .circle {
-      margin-left: -1.2em;
-      margin-right: -1.2em;
+      margin-left: -1.32em;
+      margin-right: -1.32em;
     }
     .circleoverlap > .circle:first-child {
       margin-left: 0;
@@ -159,7 +168,7 @@
       top: 6em;
       height: 8em;
       margin-bottom: -2em;
-      border-left: 3px dashed #eee;
+      border-left: 6px dotted #eee;
     }
   </style>
 </head>
