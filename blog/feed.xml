@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <title>Sebastian Berns ← Creative ML Research</title>
+  <subtitle>Sebastian Berns is a generative machine learning researcher and graphic designer.</subtitle>
+  <id>https://sebastianberns.com/blog/</id>
+  <link href="https://sebastianberns.com/blog/"/>
+  <link rel="self" href="https://sebastianberns.com/blog/feed.xml"/>
+  <updated>2026-10-28T00:00:00Z</updated>
+  <author><name>Sebastian Berns</name></author>
+</feed>
