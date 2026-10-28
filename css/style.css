@@ -19,6 +19,38 @@
 }
 
 @font-face {
+  font-family: "IBM Plex Sans";
+  src: url(/fonts/ibm-plex-sans-light.woff2) format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url(/fonts/ibm-plex-sans-light-italic.woff2) format("woff2");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url(/fonts/ibm-plex-sans-bold.woff2) format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url(/fonts/ibm-plex-sans-semibold.woff2) format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "IBM Plex Mono";
   src: url(/fonts/ibm-plex-mono-regular.woff2) format("woff2");
   font-weight: normal;
@@ -66,6 +98,38 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Newsreader Text";
+  src: url(/fonts/newsreader-text-light.woff2) format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Newsreader Text";
+  src: url(/fonts/newsreader-text-light-italic.woff2) format("woff2");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Newsreader Text";
+  src: url(/fonts/newsreader-text-bold.woff2) format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Newsreader Text";
+  src: url(/fonts/newsreader-text-semibold.woff2) format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Tokens */
 
 /* Colors with two values follow color-scheme: the system setting, or the
@@ -76,6 +140,8 @@
   --font-display: "Newsreader Display", Garamond, "Times New Roman", Times, serif;
   --font-text: "Newsreader Text", Georgia, "Times New Roman", Times, serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --weight-text: 400;  /* 300 in dark mode */
+  --weight-bold: 700;  /* 600 in dark mode */
 
   /* Named colors: light scheme */
   --ivory: #F4F9E9;
@@ -143,6 +209,14 @@
 :root[data-theme="light"] { color-scheme: light; }
 :root[data-theme="dark"]  { color-scheme: dark; }
 
+/* Light text on a dark background looks heavier, so dark mode goes one step lighter: light
+   instead of regular, semibold instead of bold (Newsreader Text and IBM Plex Sans; the other
+   families fall back to regular) */
+:root[data-theme="dark"] { --weight-text: 300; --weight-bold: 600; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --weight-text: 300; --weight-bold: 600; }
+}
+
 /* Base */
 
 html {
@@ -170,12 +244,13 @@ body {
   color: var(--fg);
   font-family: var(--font-sans);
   font-size: 1.25em;  /* 20px */
+  font-weight: var(--weight-text);
   line-height: 1.4em;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-size: 1em;
-  font-weight: normal;
+  font-weight: var(--weight-text);
 }
 
 p {
@@ -185,7 +260,12 @@ p {
 
 em, i {
   font-style: italic;
-  font-weight: normal;
+  font-weight: var(--weight-text);
+}
+
+/* Keeps the surrounding family: Newsreader Text bold in posts, IBM Plex Sans bold elsewhere */
+b, strong {
+  font-weight: var(--weight-bold);
 }
 
 .italic {
@@ -496,7 +576,7 @@ a {
     border-bottom: 1px solid var(--rule);
     text-align: left;
   }
-  & th { border-bottom-color: var(--fg); font-weight: normal; }
+  & th { border-bottom-color: var(--fg); font-weight: var(--weight-text); }
 }
 
 /* Code */
